@@ -1,0 +1,17 @@
+{
+  "name": "Release",
+  "fields": [],
+  "relationships": [],
+  "changelogDate": "20200822143256",
+  "entityTableName": "release",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "taskService",
+  "applications": "*",
+  "microserviceName": "taskService"
+}

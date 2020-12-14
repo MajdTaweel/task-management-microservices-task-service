@@ -56,13 +56,13 @@ public class TaskResource {
 
 
 
-
-        // This method was also edited in create-conflict branch
-        int conflict = 1;
-
-
-
-        
+      
+        // Conflict resolved :)
+        boolean conflict = false;
+      
+      
+      
+      
         if (taskDTO.getId() != null) {
             throw new BadRequestAlertException("A new task cannot already have an ID", ENTITY_NAME, "idexists");
         }

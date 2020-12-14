@@ -53,6 +53,16 @@ public class TaskResource {
     @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.LEAD + "\")")
     public ResponseEntity<TaskDTO> createTask(@Valid @RequestBody TaskDTO taskDTO) throws URISyntaxException {
         log.debug("REST request to save Task : {}", taskDTO);
+
+
+
+
+        // This method was also edited in create-conflict branch
+        int conflict = 1;
+
+
+
+        
         if (taskDTO.getId() != null) {
             throw new BadRequestAlertException("A new task cannot already have an ID", ENTITY_NAME, "idexists");
         }

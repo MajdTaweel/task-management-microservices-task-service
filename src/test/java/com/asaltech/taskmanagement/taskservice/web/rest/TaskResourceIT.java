@@ -34,7 +34,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 @SpringBootTest(classes = {SecurityBeanOverrideConfiguration.class, TaskServiceApp.class})
 @AutoConfigureMockMvc
-@WithMockUser
+@WithMockUser(authorities = {"ROLE_USER", "ROLE_TEAM_LEAD"})
 public class TaskResourceIT {
 
     private static final String DEFAULT_TITLE = "AAAAAAAAAA";
@@ -52,8 +52,8 @@ public class TaskResourceIT {
     private static final String DEFAULT_RELEASE_ID = "AAAAAAAAAA";
     private static final String UPDATED_RELEASE_ID = "BBBBBBBBBB";
 
-    private static final Set<String> DEFAULT_ASSIGNEES = new HashSet<>();
-    private static final Set<String> UPDATED_ASSIGNEES = new HashSet<>();
+    private static final Set<String> DEFAULT_ASSIGNEES = null;
+    private static final Set<String> UPDATED_ASSIGNEES = null;
 
     @Autowired
     private TaskRepository taskRepository;
@@ -222,7 +222,7 @@ public class TaskResourceIT {
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION))
             .andExpect(jsonPath("$.deadline").value(DEFAULT_DEADLINE.toString()))
             .andExpect(jsonPath("$.releaseId").value(DEFAULT_RELEASE_ID))
-            .andExpect(jsonPath("$.assignees").value(DEFAULT_ASSIGNEES));
+            .andExpect(jsonPath("$.assignees").isEmpty());
     }
 
     @Test

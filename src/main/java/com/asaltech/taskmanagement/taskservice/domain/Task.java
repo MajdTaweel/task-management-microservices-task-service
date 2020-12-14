@@ -38,11 +38,9 @@ public class Task extends AbstractAuditingEntity implements Serializable {
     @Field("deadline")
     private Instant deadline;
 
-    @DBRef
     @Field("release_id")
     private String releaseId;
 
-    @DBRef
     @Field("assignees")
     private Set<String> assignees;
 
